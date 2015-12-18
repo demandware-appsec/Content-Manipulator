@@ -197,8 +197,3 @@ Which can be called via
 	CustomSecureFilter.encodeBase64Symbols( "foobar!" );
 	CustomSecureFilter.encodeHtmlContent( "foobar!" );
 ```
-
-
-
-
-
