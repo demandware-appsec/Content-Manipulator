@@ -161,3 +161,44 @@ public void applicationInit()
 	...	
 }
 ```
+
+Now you can subclass SecureEncoder and SecureFilter
+```java
+public class CustomSecureEncoder extends SecureEncoder
+{
+	public static encodeBase64Symbols( String input )
+	{
+		return encode( CustomManipulationType.BASE64_SYMBOLS_STANDARD, input );
+	}
+
+	public static encodeBase64Symbols( String input, WRiter out )
+	{
+		encode( CustomManipulationType.BASE64_SYMBOLS_STANDARD, input, out);
+	}
+}
+
+public class CustomSecureFilter extends SecureFilter
+{
+	public static filterBase64Symbols( String input )
+	{
+		return filter( CustomManipulationType.BASE64_SYMBOLS_STANDARD, input );
+	}
+
+	public static filterBase64Symbols( String input, WRiter out )
+	{
+		filter( CustomManipulationType.BASE64_SYMBOLS_STANDARD, input, out);
+	}
+}
+
+```
+
+Which can be called via
+```java
+	CustomSecureFilter.encodeBase64Symbols( "foobar!" );
+	CustomSecureFilter.encodeHtmlContent( "foobar!" );
+```
+
+
+
+
+
