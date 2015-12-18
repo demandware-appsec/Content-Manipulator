@@ -173,7 +173,7 @@ public class CustomSecureEncoder extends SecureEncoder
 
 	public static encodeBase64Symbols( String input, WRiter out )
 	{
-		encode( CustomManipulationType.BASE64_SYMBOLS_STANDARD, input, out);
+		encode( CustomManipulationType.BASE64_SYMBOLS_STANDARD, input, out );
 	}
 }
 
@@ -184,9 +184,9 @@ public class CustomSecureFilter extends SecureFilter
 		return filter( CustomManipulationType.BASE64_SYMBOLS_STANDARD, input );
 	}
 
-	public static filterBase64Symbols( String input, WRiter out )
+	public static filterBase64Symbols( String input, Writer out )
 	{
-		filter( CustomManipulationType.BASE64_SYMBOLS_STANDARD, input, out);
+		filter( CustomManipulationType.BASE64_SYMBOLS_STANDARD, input, out );
 	}
 }
 
