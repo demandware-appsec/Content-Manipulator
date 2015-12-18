@@ -1,4 +1,4 @@
-# Content-Manipulator
+# Context Based Content Manipulation
 #### Demandware Inc, 2015
 
 ## Goal
