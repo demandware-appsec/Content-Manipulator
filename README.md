@@ -14,14 +14,17 @@ Provide a set of Context-Based Encoders and Filterers in Java that allow applica
 
 ### Standalone
 JDK7: [content-manipulator-jdk7.jar](demandware-appsec.github.io/Content-Manipulator/jar/content-manipulator-jdk7.jar)
+
 JDK8: [content-manipulator-jdk8.jar](demandware-appsec.github.io/Content-Manipulator/jar/content-manipulator-jdk8.jar)
 
 ### Maven
 Use the following coordinates:
-'''
-<groupId>TBD</groupId>
-<artifactId>TBD</artifactId>
-'''
+``` xml
+<dependency>
+  <groupId>TBD</groupId>
+  <artifactId>TBD</artifactId>
+</dependency>
+```
 
 ## Design
 ### Supported Contexts     
