@@ -36,6 +36,7 @@ public abstract class AbstractManipulator
     /**
      * Every Manipulator must have a corresponding ManipulateOption which
      * contains various options for sub-configuration of a Manipulator
+     * @param manipulatorOption the {@link IManipulateOption} to use 
      */
     protected AbstractManipulator( IManipulateOption manipulatorOption )
     {

@@ -657,7 +657,7 @@ public class SecureFilter
      * <br>
      * <b>Example Usage:</b>
      * <pre>
-     * <!-- ${SecureFilter.filterXmlCommentContent(unsafeData)} -->
+     * &lt;!-- ${SecureFilter.filterXmlCommentContent(unsafeData)} --&gt;
      * </pre>
      *
      * <b>Flow:</b>

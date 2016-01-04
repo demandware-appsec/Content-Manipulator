@@ -125,7 +125,7 @@ public class SecureEncoder
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Replace Illegal Control Characters (Below 0x1F or between 0x7F and 0x9F)
-     * with &#xfffd;, the Unicode Replacement Character</li>
+     * with &amp;#xfffd;, the Unicode Replacement Character</li>
      * <li>Replace special HTML characters with their HTML Entity equivalents</li>
      * </ul>
      *
@@ -166,7 +166,7 @@ public class SecureEncoder
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Replace Illegal Control Characters (Below 0x1F or between 0x7F and 0x9F)
-     * with &#xfffd;, the Unicode Replacement Character</li>
+     * with &amp;#xfffd;, the Unicode Replacement Character</li>
      * <li>Replace special HTML characters with their HTML Entity equivalents</li>
      * </ul>
      *
@@ -207,7 +207,7 @@ public class SecureEncoder
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Replace Illegal Control Characters (Below 0x1F or between 0x7F and 0x9F)
-     * with &#xfffd;, the Unicode Replacement Character</li>
+     * with &amp;#xfffd;, the Unicode Replacement Character</li>
      * <li>Replace special HTML characters with their HTML Entity equivalents</li>
      * </ul>
      *
@@ -685,7 +685,7 @@ public class SecureEncoder
      * <br>
      * <b>Example Usage:</b>
      * <pre>
-     * <!-- ${SecureEncoder.encodeXmlCommentContent(unsafeData)} -->
+     * &lt;!-- ${SecureEncoder.encodeXmlCommentContent(unsafeData)} --&gt;
      * </pre>
      *
      * <b>Flow:</b>
