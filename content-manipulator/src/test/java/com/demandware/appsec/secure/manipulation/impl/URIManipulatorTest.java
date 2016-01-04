@@ -44,10 +44,12 @@ public class URIManipulatorTest
     @Test
     public void testImmunity()
     {
-        List<SimpleEntry<Character[], URIManipulator>> list =
+        @SuppressWarnings("unchecked")
+		List<SimpleEntry<Character[], URIManipulator>> list =
             Arrays.asList(
                 new SimpleEntry<Character[], URIManipulator>( URIManipulatorOption.COMPONENT
-                    .getImmuneCharacters(), this.uri ), new SimpleEntry<Character[], URIManipulator>(
+                    .getImmuneCharacters(), this.uri ), 
+                new SimpleEntry<Character[], URIManipulator>(
                     URIManipulatorOption.COMPONENT_STRICT.getImmuneCharacters(), this.strict ) );
 
         for ( SimpleEntry<Character[], URIManipulator> entry : list )
@@ -66,7 +68,8 @@ public class URIManipulatorTest
     public void testPercentEncoding()
     {
 
-        List<SimpleEntry<Character, String>> list =
+        @SuppressWarnings("unchecked")
+		List<SimpleEntry<Character, String>> list =
             Arrays.asList( new SimpleEntry<Character, String>( (char) 33, "!" ), new SimpleEntry<Character, String>(
                 (char) 45, "-" ), new SimpleEntry<Character, String>( (char) 95, "_" ),
                 new SimpleEntry<Character, String>( (char) 46, "." ), new SimpleEntry<Character, String>( (char) 126,

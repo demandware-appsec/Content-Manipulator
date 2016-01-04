@@ -49,15 +49,14 @@ public class HTMLManipulatorTest
     @Test
     public void testImmunity()
     {
-        List<SimpleEntry<Character[], HTMLManipulator>> list =
+        @SuppressWarnings("unchecked")
+		List<SimpleEntry<Character[], HTMLManipulator>> list =
             Arrays.asList(
-                new SimpleEntry<Character[], HTMLManipulator>( HTMLManipulatorOption.CONTENT
-                    .getImmuneCharacters(), this.conMan ),
-                new SimpleEntry<Character[], HTMLManipulator>( HTMLManipulatorOption.DOUBLE_QUOTE_ATTRIBUTE
-                    .getImmuneCharacters(), this.dblMan ),
-                new SimpleEntry<Character[], HTMLManipulator>( HTMLManipulatorOption.SINGLE_QUOTE_ATTRIBUTE
-                    .getImmuneCharacters(), this.sglMan ), new SimpleEntry<Character[], HTMLManipulator>(
-                    HTMLManipulatorOption.UNQUOTED_ATTRIBUTE.getImmuneCharacters(), this.noqMan ) );
+            	new SimpleEntry<Character[], HTMLManipulator>( HTMLManipulatorOption.CONTENT.getImmuneCharacters(), this.conMan ),
+                new SimpleEntry<Character[], HTMLManipulator>( HTMLManipulatorOption.DOUBLE_QUOTE_ATTRIBUTE.getImmuneCharacters(), this.dblMan ),
+                new SimpleEntry<Character[], HTMLManipulator>( HTMLManipulatorOption.SINGLE_QUOTE_ATTRIBUTE.getImmuneCharacters(), this.sglMan ), 
+                new SimpleEntry<Character[], HTMLManipulator>(HTMLManipulatorOption.UNQUOTED_ATTRIBUTE.getImmuneCharacters(), this.noqMan ) 
+            );
 
         for ( SimpleEntry<Character[], HTMLManipulator> entry : list )
         {
@@ -75,8 +74,10 @@ public class HTMLManipulatorTest
     public void testEntityEncoding()
     {
 
-        List<SimpleEntry<Character, String>> list =
-            Arrays.asList( new SimpleEntry<Character, String>( (char) 34, "&quot;" ), /* quotation mark */
+        @SuppressWarnings("unchecked")
+		List<SimpleEntry<Character, String>> list =
+            Arrays.asList( 
+            	new SimpleEntry<Character, String>( (char) 34, "&quot;" ), /* quotation mark */
                 new SimpleEntry<Character, String>( (char) 38, "&amp;" ), /* ampersand */
                 new SimpleEntry<Character, String>( (char) 60, "&lt;" ), /* less-than sign */
                 new SimpleEntry<Character, String>( (char) 62, "&gt;" ), /* greater-than sign */

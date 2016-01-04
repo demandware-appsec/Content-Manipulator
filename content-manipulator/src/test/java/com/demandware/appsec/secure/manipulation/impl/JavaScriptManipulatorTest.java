@@ -60,11 +60,16 @@ public class JavaScriptManipulatorTest
     @Test
     public void testEscape()
     {
-        List<SimpleEntry<Character, String>> escapes =
-            Arrays.asList( new SimpleEntry<Character, String>( '\b', "\\b" ), new SimpleEntry<Character, String>( '\t',
-                "\\t" ), new SimpleEntry<Character, String>( '\n', "\\n" ), new SimpleEntry<Character, String>( '\f',
-                "\\f" ), new SimpleEntry<Character, String>( '\r', "\\r" ), new SimpleEntry<Character, String>( '\\',
-                "\\\\" ) );
+        @SuppressWarnings("unchecked")
+		List<SimpleEntry<Character, String>> escapes =
+            Arrays.asList( 
+            		new SimpleEntry<Character, String>( '\b', "\\b" ), 
+            		new SimpleEntry<Character, String>( '\t', "\\t" ), 
+            		new SimpleEntry<Character, String>( '\n', "\\n" ), 
+            		new SimpleEntry<Character, String>( '\f', "\\f" ), 
+            		new SimpleEntry<Character, String>( '\r', "\\r" ), 
+            		new SimpleEntry<Character, String>( '\\', "\\\\" ) 
+            );
 
         for ( JavaScriptManipulator manip : this.jslist )
         {

@@ -49,7 +49,8 @@ public class XMLManipulatorTest
     @Test
     public void testImmunity()
     {
-        List<SimpleEntry<Character[], XMLManipulator>> list =
+        @SuppressWarnings("unchecked")
+		List<SimpleEntry<Character[], XMLManipulator>> list =
             Arrays.asList(
                 new SimpleEntry<Character[], XMLManipulator>( XMLManipulatorOption.COMMENT_CONTENT
                     .getImmuneCharacters(), this.comMan ),
@@ -76,7 +77,8 @@ public class XMLManipulatorTest
     public void testEntityEncoding()
     {
 
-        List<SimpleEntry<Character, String>> list =
+        @SuppressWarnings("unchecked")
+		List<SimpleEntry<Character, String>> list =
             Arrays.asList( new SimpleEntry<Character, String>( (char) 34, "&quot;" ), /* quotation mark */
                 new SimpleEntry<Character, String>( (char) 38, "&amp;" ), /* ampersand */
                 new SimpleEntry<Character, String>( (char) 60, "&lt;" ), /* less-than sign */

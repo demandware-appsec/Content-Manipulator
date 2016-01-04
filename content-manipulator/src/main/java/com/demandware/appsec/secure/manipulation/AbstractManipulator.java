@@ -45,6 +45,8 @@ public abstract class AbstractManipulator
     /**
      * A primary target for a Manipulator. filter removes any offending
      * characters from the given string
+     * @param input the string to filter
+     * @return a filtered string based on the manipulator implementation
      */
     protected String filter( String input )
     {
@@ -64,6 +66,8 @@ public abstract class AbstractManipulator
     /**
      * A primary target for a Manipulator. filter removes any offending
      * characters from the given string and writes to the given Writer
+     * @param input the string to filter
+     * @param writer a Writer to write output to
      * @throws IOException if the writer throws an IOException
      */
     protected void filter( String input, Writer writer ) throws IOException
@@ -82,6 +86,8 @@ public abstract class AbstractManipulator
     /**
      * A primary target for a Manipulator. encode modifies offending
      * characters to their "safe" equivalents
+     * @param input the string to encode
+     * @return an encoded string based on the manipulator implementation
      */
     protected String encode( String input )
     {
@@ -99,6 +105,8 @@ public abstract class AbstractManipulator
     /**
      * A primary target for a Manipulator. encode modifies offending
      * characters to their "safe" equivalents and writes to the given Writer
+     * @param input the string to encode
+     * @param writer a Writer to write output to
      * @throws IOException if the writer throws an IOException
      */
     protected void encode( String input, Writer writer ) throws IOException
@@ -113,6 +121,8 @@ public abstract class AbstractManipulator
     /**
      * Given a character, do any defined, necessary manipulations to the
      * character and return its corrected, possibly manipulated version
+     * @param c a single character to manipulate based on implementation
+     * @return the corrected string version of the input character
      */
     protected abstract String getCorrectCharacter( Character c );
 

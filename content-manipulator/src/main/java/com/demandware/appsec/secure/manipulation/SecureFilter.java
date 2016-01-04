@@ -34,6 +34,9 @@ public class SecureFilter
 
     /**
      * Shared method to handle filter lookup and dispatch string
+     * @param type the manipulation type to use for filter lookup
+     * @param input the string to filter
+     * @return a properly encoded string representation of the input string
      */
 	protected static String filter( IManipulationType type, String input )
     {
@@ -44,6 +47,9 @@ public class SecureFilter
     /**
      * Shared method to handle filter lookup and dispatch string to be written
      * with the given writer
+     * @param type the manipulation type to use for filter lookup
+     * @param input the string to filter
+     * @param writer a Writer to write output to
      */
 	protected static void filter( IManipulationType type, String input, Writer writer)
     {
@@ -68,14 +74,14 @@ public class SecureFilter
      * untrusted data will be output.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;div&gt;${SecureFilter.filterHtmlContent(unsafeData)}&lt;/div&gt;
      *
      * &lt;input value="${SecureFilter.filterHtmlContent(unsafeData)}" /&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -110,12 +116,12 @@ public class SecureFilter
      * document.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;div id='${SecureFilter.filterHtmlInSingleQuoteAttribute(unsafeData)}'&gt;&lt;/div&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -150,12 +156,12 @@ public class SecureFilter
      * document.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;div id="${SecureFilter.filterHtmlInDoubleQuoteAttribute(unsafeData)}"&gt;&lt;/div&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -189,12 +195,12 @@ public class SecureFilter
      * exactly how the output of this will be used in the HTML document.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;div id=${SecureFilter.filterHtmlUnquotedAttribute(unsafeData)}&gt;&lt;/div&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -231,7 +237,7 @@ public class SecureFilter
      * output.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;script type="text/javascript"&gt;
      *     var data = "${SecureFilter.filterJavaScriptInHTML(unsafeData)}";
@@ -240,7 +246,7 @@ public class SecureFilter
      * &lt;button onclick="alert('${SecureFilter.filterJavaScriptInHTML(unsafeData)}');"&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -273,12 +279,12 @@ public class SecureFilter
      * exactly how the output of the will be used in the page
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;button onclick="alert('${SecureFilter.filterJavaScriptInAttribute(unsafeData)}');"&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -312,14 +318,14 @@ public class SecureFilter
      * exactly how the output of the will be used in the page
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;script type="text/javascript"&gt;
      *     var data = "${SecureFilter.filterJavaScriptInBlock(unsafeData)}";
      * &lt;/script&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -353,13 +359,13 @@ public class SecureFilter
      * understand exactly how the output of the will be used in the page
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;...inside foobar.js...&gt;
      * var data = "${SecureFilter.filterJavaScriptInSource(unsafeData)}";
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -392,13 +398,13 @@ public class SecureFilter
      * Value to prevent escaping into a trusted context.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * var json = {"trusted_data" : SecureFilter.filterJSONValue(unsafeData)};
      * return JSON.stringify(json);
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics</li>
      * <li>Remove all other characters</li>
@@ -432,15 +438,15 @@ public class SecureFilter
      * does a realistic job of encoding.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;a href="http://host.com?value=${SecureFilter.filterUriComponent(unsafeData)}"/&gt;
      * </pre>
      *
-     * <h5>Allows:</h5>
+     * <b>Allows:</b>
      * <pre>A-Z, a-z, 0-9, -, _, ., ~, !, *, ', (, )</pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -473,15 +479,15 @@ public class SecureFilter
      * of a URI. This is a strict filter and fully complies with RFC3986.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;a href="http://host.com?value=${SecureFilter.filterUriComponentStrict(unsafeData)}"/&gt;
      * </pre>
      *
-     * <h5>Allows:</h5>
+     * <b>Allows:</b>
      * <pre>A-Z, a-z, 0-9, -, _, ., ~</pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -518,17 +524,17 @@ public class SecureFilter
      * untrusted data will be output.
      * </p>
      *
-     * <h5>Note: It is recommended that you use a real parser, as this method
-     * can be misused, but is left here if a parser is unavailable to you</h5>
-     * <br/>
-     * <h5>Example Usage:</h5>
+     * <b>Note: It is recommended that you use a real parser, as this method
+     * can be misused, but is left here if a parser is unavailable to you</b>
+     * <br>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;foo&gt;${SecureFilter.filterXmlContent(unsafeData)}&lt;/foo&gt;
      *
      * &lt;bar attr="${SecureFilter.filterXmlContent(unsafeData)}"&gt;&lt;/bar&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -562,15 +568,15 @@ public class SecureFilter
      * understand the context in which untrusted data will be output.
      * </p>
      *
-     * <h5>Note: It is recommended that you use a real parser, as this method
-     * can be misused, but is left here if a parser is unavailable to you</h5>
-     * <br/>
-     * <h5>Example Usage:</h5>
+     * <b>Note: It is recommended that you use a real parser, as this method
+     * can be misused, but is left here if a parser is unavailable to you</b>
+     * <br>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;bar attr='${SecureFilter.filterXmlInSingleQuoteAttribute(unsafeData)}'&gt;&lt;/bar&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -604,15 +610,15 @@ public class SecureFilter
      * understand the context in which untrusted data will be output.
      * </p>
      *
-     * <h5>Note: It is recommended that you use a real parser, as this method
-     * can be misused, but is left here if a parser is unavailable to you</h5>
-     * <br/>
-     * <h5>Example Usage:</h5>
+     * <b>Note: It is recommended that you use a real parser, as this method
+     * can be misused, but is left here if a parser is unavailable to you</b>
+     * <br>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;bar attr="${SecureFilter.filterXmlInDoubleQuoteAttribute(unsafeData)}"&gt;&lt;/bar&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>
@@ -646,15 +652,15 @@ public class SecureFilter
      * which untrusted data will be output.
      * </p>
      *
-     * <h5>Note: It is recommended that you use a real parser, as this method
-     * can be misused, but is left here if a parser is unavailable to you</h5>
-     * <br/>
-     * <h5>Example Usage:</h5>
+     * <b>Note: It is recommended that you use a real parser, as this method
+     * can be misused, but is left here if a parser is unavailable to you</b>
+     * <br>
+     * <b>Example Usage:</b>
      * <pre>
-     * <!-- ${SecureFilterr.filterXmlCommentContent(unsafeData)} -->
+     * <!-- ${SecureFilter.filterXmlCommentContent(unsafeData)} -->
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Remove all other characters</li>

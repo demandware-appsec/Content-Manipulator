@@ -52,6 +52,9 @@ public class ManipulationUtils {
 	/**
 	 * An aid to filtering, isSame returns true if a given
 	 * Character exactly matches a given String in size (1) and content
+	 * @param c a character to test against
+	 * @param s a string to compare to the character
+	 * @return true if the string describes the character exactly
 	 */
 	public final static boolean isSame( Character c, String s )
 	{
@@ -62,6 +65,8 @@ public class ManipulationUtils {
 
 	/**
 	 * Converts given character to it's escaped version
+	 * @param c a character to possibly escape
+	 * @return a slash-escaped version of the character, if necessary
 	 */
 	public final static String slashEscapeChar( Character c )
 	{
@@ -93,6 +98,9 @@ public class ManipulationUtils {
 
 	/**
 	 * Returns true if character is found in the given list
+	 * @param c a character to search for
+	 * @param list a list to search within
+	 * @return true if the character exists in the list
 	 */
 	public final static boolean isInList( Character c, Character[] list )
 	{
@@ -121,7 +129,9 @@ public class ManipulationUtils {
 	}
 
 	/**
-	 * Returns true if the character is in the set of
+	 * Checks to see if a character is alphanumeric
+	 * @param c a character to check against
+	 * @return true if the character is in the set of
 	 * lowercase, uppercase, or numeric characters, false otherwise
 	 */
 	public final static boolean isAlphaNum( char c )
@@ -134,6 +144,8 @@ public class ManipulationUtils {
 	/**
 	 * Given a char, return the Hex representation of that
 	 * char (does not include 0x or similar)
+	 * @param c a character to hexify
+	 * @return the hex string representation of the character
 	 */
 	public final static String getHexForCharacter( char c )
 	{

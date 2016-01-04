@@ -33,6 +33,9 @@ public class SecureEncoder
 
     /**
      * Shared method to handle encoder lookup and dispatch string
+     * @param type the manipulation type to use for encoder lookup
+     * @param input the string to encode
+     * @return a properly encoded string representation of the input string
      */
     protected static String encode( DefaultManipulationType type, String input )
     {
@@ -43,6 +46,9 @@ public class SecureEncoder
     /**
      * Shared method to handle encoder lookup and dispatch string to be written
      * with the given writer
+     * @param type the manipulation type to use for encoder lookup
+     * @param input the string to encode
+     * @param writer a Writer to write output to
      */
     protected static void encode( DefaultManipulationType type, String input, Writer writer)
     {
@@ -67,18 +73,18 @@ public class SecureEncoder
      * output.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;div&gt;${SecureEncode.encodeHtmlContent(unsafeData)}&lt;/div&gt;
      *
      * &lt;input value="${SecureEncode.encodeHtmlContent(unsafeData)}" /&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Replace Illegal Control Characters (Below 0x1F or between 0x7F and 0x9F)
-     * with &#xfffd;, the Unicode Replacement Character</li>
+     * with &amp;#xfffd;, the Unicode Replacement Character</li>
      * <li>Replace special HTML characters with their HTML Entity equivalents</li>
      * </ul>
      *
@@ -110,12 +116,12 @@ public class SecureEncoder
      * of this will be used in the HTML document.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;div id='${SecureEncode.encodeHtmlInSingleQuoteAttribute(unsafeData)}'&gt;&lt;/div&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Replace Illegal Control Characters (Below 0x1F or between 0x7F and 0x9F)
@@ -151,12 +157,12 @@ public class SecureEncoder
      * of this will be used in the HTML document.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;div id="${SecureEncode.encodeHtmlInDoubleQuoteAttribute(unsafeData)}"&gt;&lt;/div&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Replace Illegal Control Characters (Below 0x1F or between 0x7F and 0x9F)
@@ -192,12 +198,12 @@ public class SecureEncoder
      * of this will be used in the HTML document.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;div id=${SecureEncode.encodeHtmlUnquotedAttribute(unsafeData)}&gt;&lt;/div&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Replace Illegal Control Characters (Below 0x1F or between 0x7F and 0x9F)
@@ -235,7 +241,7 @@ public class SecureEncoder
      * the context in which untrusted data will be output.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;script type="text/javascript"&gt;
      *     var data = "${SecureEncode.encodeJavaScriptInHTML(unsafeData)}";
@@ -244,7 +250,7 @@ public class SecureEncoder
      * &lt;button onclick="alert('${SecureEncode.encodeJavaScriptInHTML(unsafeData)}');"&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Slash escape certain illegal characters</li>
@@ -281,12 +287,12 @@ public class SecureEncoder
      * of the will be used in the page
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;button onclick="alert('${SecureEncode.encodeJavaScriptInAttribute(unsafeData)}');"&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Slash escape certain illegal characters</li>
@@ -323,14 +329,14 @@ public class SecureEncoder
      * of the will be used in the page
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;script type="text/javascript"&gt;
      *     var data = "${SecureEncode.encodeJavaScriptInBlock(unsafeData)}";
      * &lt;/script&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Slash escape certain illegal characters</li>
@@ -367,13 +373,13 @@ public class SecureEncoder
      * of the will be used in the page
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;...inside foobar.js...&gt;
      * var data = "${SecureEncode.encodeJavaScriptInSource(unsafeData)}";
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Slash escape certain illegal characters</li>
@@ -409,13 +415,13 @@ public class SecureEncoder
      * escaping into a trusted context.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * var json = {"trusted_data" : SecureEncoder.encodeJSONValue(unsafeData)};
      * return JSON.stringify(json);
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics</li>
      * <li>Slash escape certain illegal characters</li>
@@ -451,15 +457,15 @@ public class SecureEncoder
      * job of encoding.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;a href="http://host.com?value=${SecureEncoder.encodeUriComponent(unsafeData)}"/&gt;
      * </pre>
      *
-     * <h5>Allows:</h5>
+     * <b>Allows:</b>
      * <pre>A-Z, a-z, 0-9, -, _, ., ~, !, *, ', (, )</pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Percent encode all other characters</li>
@@ -492,15 +498,15 @@ public class SecureEncoder
      * encoder and fully complies with RFC3986.
      * </p>
      *
-     * <h5>Example Usage:</h5>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;a href="http://host.com?value=${SecureEncoder.encodeUriComponentStrict(unsafeData)}"/&gt;
      * </pre>
      *
-     * <h5>Allows:</h5>
+     * <b>Allows:</b>
      * <pre>A-Z, a-z, 0-9, -, _, ., ~</pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Percent encode all other characters</li>
@@ -537,17 +543,17 @@ public class SecureEncoder
      * output.
      * </p>
      *
-     * <h5>Note: It is recommended that you use a real parser, as this method
-     * can be misused, but is left here if a parser is unavailable to you</h5>
-     * <br/>
-     * <h5>Example Usage:</h5>
+     * <b>Note: It is recommended that you use a real parser, as this method
+     * can be misused, but is left here if a parser is unavailable to you</b>
+     * <br>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;foo&gt;${SecureEncode.encodeXmlContent(unsafeData)}&lt;/foo&gt;
      *
      * &lt;bar attr="${SecureEncode.encodeXmlContent(unsafeData)}"&gt;&lt;/bar&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Replace Illegal Control Characters (Below 0x1F or between
@@ -584,15 +590,15 @@ public class SecureEncoder
      * untrusted data will be output.
      * </p>
      *
-     * <h5>Note: It is recommended that you use a real parser, as this method
-     * can be misused, but is left here if a parser is unavailable to you</h5>
-     * <br/>
-     * <h5>Example Usage:</h5>
+     * <b>Note: It is recommended that you use a real parser, as this method
+     * can be misused, but is left here if a parser is unavailable to you</b>
+     * <br>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;bar attr='${SecureEncode.encodeXmlInSingleQuoteAttribute(unsafeData)}'&gt;&lt;/bar&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Replace Illegal Control Characters (Below 0x1F or between
@@ -629,15 +635,15 @@ public class SecureEncoder
      * untrusted data will be output.
      * </p>
      *
-     * <h5>Note: It is recommended that you use a real parser, as this method
-     * can be misused, but is left here if a parser is unavailable to you</h5>
-     * <br/>
-     * <h5>Example Usage:</h5>
+     * <b>Note: It is recommended that you use a real parser, as this method
+     * can be misused, but is left here if a parser is unavailable to you</b>
+     * <br>
+     * <b>Example Usage:</b>
      * <pre>
      * &lt;bar attr="${SecureEncode.encodeXmlInDoubleQuoteAttribute(unsafeData)}"&gt;&lt;/bar&gt;
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Replace Illegal Control Characters (Below 0x1F or between
@@ -674,15 +680,15 @@ public class SecureEncoder
      * untrusted data will be output.
      * </p>
      *
-     * <h5>Note: It is recommended that you use a real parser, as this method
-     * can be misused, but is left here if a parser is unavailable to you</h5>
-     * <br/>
-     * <h5>Example Usage:</h5>
+     * <b>Note: It is recommended that you use a real parser, as this method
+     * can be misused, but is left here if a parser is unavailable to you</b>
+     * <br>
+     * <b>Example Usage:</b>
      * <pre>
      * <!-- ${SecureEncoder.encodeXmlCommentContent(unsafeData)} -->
      * </pre>
      *
-     * <h5>Flow:</h5>
+     * <b>Flow:</b>
      * <ul>
      * <li>Allow AlphaNumerics and some Special characters</li>
      * <li>Replace Illegal Control Characters (Below 0x1F or between
