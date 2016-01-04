@@ -5,13 +5,23 @@
 [![Build Status](https://travis-ci.org/demandware-appsec/Content-Manipulator.svg?branch=master)](https://travis-ci.org/demandware-appsec/Content-Manipulator)
 
 ## Documentation
-[Javadoc](http://demandware-appsec.github.io/Content-Manipulator/javadoc/)
+[Context Based Content Manipulation Documentation](http://demandware-appsec.github.io/Content-Manipulator/javadoc/)
 
 ## Goal
 Provide a set of Context-Based Encoders and Filterers in Java that allow application developers to sanitize application data for safe output or processing. The library is designed to be easy to extend for other use-cases and requires no dependencies. This work is built off the excellent [ESAPI library](https://github.com/ESAPI/esapi-java), with a stronger emphasis on ease of expansion, an architecture with no setup requirements, and a focus on performance balanced with readability.
 
 ## Installation
-TBD
+
+### Standalone
+JDK7: [content-manipulator-jdk7.jar](demandware-appsec.github.io/Content-Manipulator/jar/content-manipulator-jdk7.jar)
+JDK8: [content-manipulator-jdk8.jar](demandware-appsec.github.io/Content-Manipulator/jar/content-manipulator-jdk8.jar)
+
+### Maven
+Use the following coordinates:
+'''
+<groupId>TBD</groupId>
+<artifactId>TBD</artifactId>
+'''
 
 ## Design
 ### Supported Contexts     
