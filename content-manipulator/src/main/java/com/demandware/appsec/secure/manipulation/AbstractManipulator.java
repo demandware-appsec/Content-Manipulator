@@ -31,6 +31,10 @@ import com.demandware.appsec.secure.manipulation.impl.ManipulationUtils;
 public abstract class AbstractManipulator
 {
 
+	/**
+	 * The "flavor" of a Manipulator. This option allows Manipulators to
+	 * provide more granular control over a specific context.
+	 */
     protected final IManipulateOption manipulatorOption;
 
     /**

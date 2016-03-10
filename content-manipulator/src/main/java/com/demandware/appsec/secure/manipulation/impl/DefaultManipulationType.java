@@ -22,6 +22,14 @@ import com.demandware.appsec.secure.manipulation.impl.JavaScriptManipulator.Java
 import com.demandware.appsec.secure.manipulation.impl.URIManipulator.URIManipulatorOption;
 import com.demandware.appsec.secure.manipulation.impl.XMLManipulator.XMLManipulatorOption;
 
+/**
+ * The Default Manipulation Types are the standard manipulators bundled with 
+ * this library. They pre-configure each Manipulator in preparation for use
+ * with the ManipulatorFactory. 
+ * 
+ * @author Chris Smith
+ *
+ */
 public enum DefaultManipulationType implements IManipulationType
 {
     HTML_CONTENT_MANIPULATOR( new HTMLManipulator( HTMLManipulatorOption.CONTENT ) ),

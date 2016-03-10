@@ -96,7 +96,7 @@ public class HTMLManipulatorTest
     @Test
     public void testReplacementCharacters()
     {
-        String replaceHex = HTMLManipulator.getReplacementHex();
+        String replaceHex = "&#xfffd;";
         for ( int i = 0x80; i <= 0x9f; i++ )
         {
             assertEquals( replaceHex, this.conMan.getCorrectCharacter( (char) i ) );

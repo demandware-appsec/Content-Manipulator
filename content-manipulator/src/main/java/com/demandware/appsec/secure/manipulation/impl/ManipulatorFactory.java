@@ -20,6 +20,21 @@ import java.util.Map;
 
 import com.demandware.appsec.secure.manipulation.AbstractManipulator;
 
+
+/**
+ * The ManipulatorFactory holds all Manipulators and manages their lifecycle.
+ * The Factory can also be considered a Registrar as it maintains singular 
+ * references to each Manipulator. 
+ * <br/>
+ * Note: This class's 
+ * {@linkplain #registerManipulationTypes(IManipulationType...)} is the only 
+ * way to add new Manipulators to the library and so must be called 
+ * when adding custom Manipulators. Additionally, you will need to subclass
+ * {@linkplain IManipulationType}
+ * 
+ * @author Chris Smith
+ *
+ */
 public class ManipulatorFactory
 {
     private static final ManipulatorFactory instance = new ManipulatorFactory();
@@ -34,7 +49,18 @@ public class ManipulatorFactory
         }
     }
     
+    /**
+     * Given a new IManipulationType, add it to the Factory for later use
+     * 
+     * @param types one or more {@linkplain IManipulationType} objects to 
+     * add to this Factory
+     */
     public static void registerManipulationTypes( IManipulationType... types ){
+    	if(types == null)
+    	{
+    		return;
+    	}
+    	
     	for( int i = 0; i < types.length; i++ )
     	{
     		IManipulationType type = types[i];
@@ -42,6 +68,14 @@ public class ManipulatorFactory
     	}
     }
 
+    /**
+     * Given an IManipulationType, return the Factory's implemented Manipulator
+     * 
+     * @param type an {@linkplain IManipulationType} describing a desired 
+     * Manipulator
+     * @return the Manipulator described by the given type, or null, if none
+     * was found
+     */
     public static AbstractManipulator getManipulator( IManipulationType type )
     {
         return instance.manipulatorMap.get( type );

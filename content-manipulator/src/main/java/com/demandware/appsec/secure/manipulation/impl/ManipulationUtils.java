@@ -15,6 +15,12 @@
  */
 package com.demandware.appsec.secure.manipulation.impl;
 
+/**
+ * A set of helper methods shared across this library.
+ * 
+ * @author Chris Smith
+ *
+ */
 public class ManipulationUtils {
 
 	/**
@@ -153,5 +159,4 @@ public class ManipulationUtils {
 	}
 	
 	private ManipulationUtils(){}
-	
 }

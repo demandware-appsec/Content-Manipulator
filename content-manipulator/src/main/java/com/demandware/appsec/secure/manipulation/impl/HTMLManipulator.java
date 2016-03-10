@@ -125,6 +125,7 @@ class HTMLManipulator
 
     /**
      * Build a unmodifiable Map of entity Character to Name for faster lookup
+     * List taken from ESAPI HTMLEntityCodec (BSD license)
      */
     private static synchronized Map<Character, String> createEntityMap()
     {

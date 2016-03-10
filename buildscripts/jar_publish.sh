@@ -8,7 +8,8 @@ if [ "$TRAVIS_REPO_SLUG" == "demandware-appsec/Content-Manipulator" ] && [ "$TRA
   echo -e "Publishing jar for $TRAVIS_JDK_VERSION"
   jdkver=$(echo -n $TRAVIS_JDK_VERSION | tail -c 4)
 
-  cp content-manipulator/target/*.jar $HOME/jar-latest/content-manipulator.jar
+  mkdir $HOME/jar-latest/
+  cp security-headers/target/*.jar $HOME/jar-latest/
   echo -e "Copied jar"
 
   cd $HOME
@@ -18,7 +19,8 @@ if [ "$TRAVIS_REPO_SLUG" == "demandware-appsec/Content-Manipulator" ] && [ "$TRA
   echo -e "Cloned gh-pages"
 
   cd gh-pages
-  cp $HOME/jar-latest/content-manipulator.jar ./jar/content-manipulator-$jdkver.jar
+  mkdir ./jar/$jdkver/
+  cp $HOME/jar-latest/*.jar ./jar/$jdkver/
   git add -f .
   git commit -m "Updating jars on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages"
   git push -fq origin gh-pages > /dev/null
