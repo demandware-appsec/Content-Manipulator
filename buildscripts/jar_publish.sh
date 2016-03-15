@@ -9,7 +9,7 @@ if [ "$TRAVIS_REPO_SLUG" == "demandware-appsec/Content-Manipulator" ] && [ "$TRA
   jdkver=$(echo -n $TRAVIS_JDK_VERSION | tail -c 4)
 
   mkdir $HOME/jar-latest/
-  cp security-headers/target/*.jar $HOME/jar-latest/
+  cp content-manipulator/target/*.jar $HOME/jar-latest/
   echo -e "Copied jar"
 
   cd $HOME

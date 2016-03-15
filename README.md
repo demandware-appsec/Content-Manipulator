@@ -13,9 +13,7 @@ Provide a set of Context-Based Encoders and Filterers in Java that allow applica
 ## Installation
 
 ### Standalone
-JDK7: [content-manipulator-jdk7.jar](https://demandware-appsec.github.io/Content-Manipulator/jar/content-manipulator-jdk7.jar)
-
-JDK8: [content-manipulator-jdk8.jar](https://demandware-appsec.github.io/Content-Manipulator/jar/content-manipulator-jdk8.jar)
+[JDK7/8](https://github.com/demandware-appsec/Content-Manipulator/tree/gh-pages/jar)
 
 ## Design
 ### Supported Contexts     
