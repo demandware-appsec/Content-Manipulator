@@ -17,15 +17,6 @@ JDK7: [content-manipulator-jdk7.jar](https://demandware-appsec.github.io/Content
 
 JDK8: [content-manipulator-jdk8.jar](https://demandware-appsec.github.io/Content-Manipulator/jar/content-manipulator-jdk8.jar)
 
-### Maven
-Use the following coordinates:
-``` xml
-<dependency>
-  <groupId>TBD</groupId>
-  <artifactId>TBD</artifactId>
-</dependency>
-```
-
 ## Design
 ### Supported Contexts     
 
@@ -56,8 +47,11 @@ Control flow has now moved from static methods in SecureEncoder and SecureFilter
 </p><p>
 As an additional configuration, AbstractManipulators accept an implementation of IManipulateOption. This allows an AbstractManipulation implementation to support multiple similar contexts with the same class. E.g. HTMLManipulator has several ManipulateOptions that allow it to support content manipulation in plain HTML, or HTML attributes with different quotations.
 </p>
+
 ### Example Usage
-For examples on using the library, extending the library, or adding to the library, please see [Examples](./EXAMPLES.md)
+Encoders and Filters are used to combat many kinds of injection attacks. To that end, all SecureEncoder methods transform input values into a safe version, without losing information; SecureFilter methods remove illegal characters in input values, destroying that data.
+
+For code examples on using the library, extending the library, or adding to the library, please see [Examples](./EXAMPLES.md)
 
 ## Tests
 Included is a test suite ManipulatorTestSuite which executes sets of JUnit tests that cover over 95%+ of instructions in the library (some instructions are missed in defensive code branches).

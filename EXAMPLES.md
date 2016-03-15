@@ -18,12 +18,12 @@
 ## Extending functionality of Encoder/Filter
 ```java
 /**
- * Adds 
+ * Adds ability to call manipulators using a String designation
  * 
  */
 public class CustomSecureEncoder extends SecureEncoder{
 
-	public static DefaultManipulationType getManipulationType( String type )
+	private static DefaultManipulationType getManipulationType( String type )
 	{
 		DefaultManipulationType manip = null;
 

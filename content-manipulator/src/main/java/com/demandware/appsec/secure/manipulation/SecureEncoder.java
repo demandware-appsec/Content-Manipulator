@@ -39,8 +39,8 @@ public class SecureEncoder
      */
     protected static String encode( DefaultManipulationType type, String input )
     {
-        AbstractManipulator enc = ManipulatorFactory.getManipulator( type );
-        return enc.encode( input );
+        AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
+        return manip.encode( input );
     }
 
     /**
@@ -52,10 +52,10 @@ public class SecureEncoder
      */
     protected static void encode( DefaultManipulationType type, String input, Writer writer)
     {
-        AbstractManipulator enc = ManipulatorFactory.getManipulator( type );
+        AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
         try
         {
-            enc.encode( input, writer );
+            manip.encode( input, writer );
         }
         catch ( IOException e )
         {

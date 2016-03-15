@@ -40,8 +40,8 @@ public class SecureFilter
      */
 	protected static String filter( IManipulationType type, String input )
     {
-        AbstractManipulator enc = ManipulatorFactory.getManipulator( type );
-        return enc.filter( input );
+        AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
+        return manip.filter( input );
     }
 
     /**
@@ -53,10 +53,10 @@ public class SecureFilter
      */
 	protected static void filter( IManipulationType type, String input, Writer writer)
     {
-        AbstractManipulator enc = ManipulatorFactory.getManipulator( type );
+        AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
         try
         {
-            enc.filter( input, writer );
+        	manip.filter( input, writer );
         }
         catch ( IOException e )
         {
