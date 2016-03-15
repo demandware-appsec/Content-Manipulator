@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 import com.demandware.appsec.secure.manipulation.impl.DefaultManipulationType;
+import com.demandware.appsec.secure.manipulation.impl.IManipulationType;
 import com.demandware.appsec.secure.manipulation.impl.ManipulatorFactory;
 
 /**
@@ -37,7 +38,7 @@ public class SecureEncoder
      * @param input the string to encode
      * @return a properly encoded string representation of the input string
      */
-    protected static String encode( DefaultManipulationType type, String input )
+    protected static String encode( IManipulationType type, String input )
     {
         AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
         return manip.encode( input );
