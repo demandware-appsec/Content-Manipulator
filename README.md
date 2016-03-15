@@ -11,8 +11,6 @@
 Provide a set of Context-Based Encoders and Filterers in Java that allow application developers to sanitize application data for safe output or processing. The library is designed to be easy to extend for other use-cases and requires no dependencies. This work is built off the excellent [ESAPI library](https://github.com/ESAPI/esapi-java), with a stronger emphasis on ease of expansion, an architecture with no setup requirements, and a focus on performance balanced with readability.
 
 ## Installation
-
-### Standalone
 [JDK7/8](https://github.com/demandware-appsec/Content-Manipulator/tree/gh-pages/jar)
 
 ## Design

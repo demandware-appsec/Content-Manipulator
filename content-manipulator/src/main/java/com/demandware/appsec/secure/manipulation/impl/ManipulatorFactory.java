@@ -25,7 +25,7 @@ import com.demandware.appsec.secure.manipulation.AbstractManipulator;
  * The ManipulatorFactory holds all Manipulators and manages their lifecycle.
  * The Factory can also be considered a Registrar as it maintains singular 
  * references to each Manipulator. 
- * <br/>
+ * <br>
  * Note: This class's 
  * {@linkplain #registerManipulationTypes(IManipulationType...)} is the only 
  * way to add new Manipulators to the library and so must be called 

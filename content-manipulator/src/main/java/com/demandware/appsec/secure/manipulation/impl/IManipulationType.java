@@ -19,7 +19,7 @@ import com.demandware.appsec.secure.manipulation.AbstractManipulator;
 
 /**
  * The interface for all granular Manipulator configuration. 
- * <br/>
+ * <br>
  * Note: This class is a target for subclassing to add your own Manipulators.
  * Additionally you will need to write the Manipulator and register with the 
  * {@linkplain ManipulatorFactory}
