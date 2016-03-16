@@ -33,25 +33,25 @@ public class SecureEncoder
 {
 
     /**
-     * Shared method to handle encoder lookup and dispatch string
+     * Shared method to handle encoder lookup by type and dispatch string
      * @param type the manipulation type to use for encoder lookup
      * @param input the string to encode
      * @return a properly encoded string representation of the input string
      */
-    protected static String encode( IManipulationType type, String input )
+    public static String encode( IManipulationType type, String input )
     {
         AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
         return manip.encode( input );
     }
 
     /**
-     * Shared method to handle encoder lookup and dispatch string to be written
-     * with the given writer
+     * Shared method to handle encoder lookup by type and dispatch 
+     * string to be written with the given writer
      * @param type the manipulation type to use for encoder lookup
      * @param input the string to encode
      * @param writer a Writer to write output to
      */
-    protected static void encode( DefaultManipulationType type, String input, Writer writer)
+    public static void encode( DefaultManipulationType type, String input, Writer writer)
     {
         AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
         try

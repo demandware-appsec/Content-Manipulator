@@ -33,25 +33,25 @@ public class SecureFilter
 {
 
     /**
-     * Shared method to handle filter lookup and dispatch string
+     * Shared method to handle filter lookup by type and dispatch string
      * @param type the manipulation type to use for filter lookup
      * @param input the string to filter
      * @return a properly encoded string representation of the input string
      */
-	protected static String filter( IManipulationType type, String input )
+	public static String filter( IManipulationType type, String input )
     {
         AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
         return manip.filter( input );
     }
 
     /**
-     * Shared method to handle filter lookup and dispatch string to be written
+     * Shared method to handle filter lookup by type and dispatch string to be written
      * with the given writer
      * @param type the manipulation type to use for filter lookup
      * @param input the string to filter
      * @param writer a Writer to write output to
      */
-	protected static void filter( IManipulationType type, String input, Writer writer)
+	public static void filter( IManipulationType type, String input, Writer writer)
     {
         AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
         try
