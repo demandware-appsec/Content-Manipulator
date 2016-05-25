@@ -19,7 +19,7 @@ import com.demandware.appsec.secure.manipulation.AbstractManipulator;
 import com.demandware.appsec.secure.manipulation.IManipulateOption;
 
 /**
- * JavaScriptManipulator handles all content related to JavaScript code
+ * JSONManipulator handles all content related to JavaScript Object Notation code
  *
  * @author Chris Smith
  */

@@ -171,7 +171,7 @@ public class CustomSecureEncoder extends SecureEncoder
 		return encode( CustomManipulationType.BASE64_SYMBOLS_STANDARD, input );
 	}
 
-	public static encodeBase64Symbols( String input, WRiter out )
+	public static encodeBase64Symbols( String input, Writer out )
 	{
 		encode( CustomManipulationType.BASE64_SYMBOLS_STANDARD, input, out );
 	}

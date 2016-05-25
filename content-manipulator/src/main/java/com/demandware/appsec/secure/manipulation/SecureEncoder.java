@@ -51,7 +51,7 @@ public class SecureEncoder
      * @param input the string to encode
      * @param writer a Writer to write output to
      */
-    public static void encode( DefaultManipulationType type, String input, Writer writer)
+    public static void encode( IManipulationType type, String input, Writer writer)
     {
         AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
         try
@@ -68,10 +68,10 @@ public class SecureEncoder
      * <p>
      * Encodes a given input for use in a general HTML context. E.g.
      * text content and text attributes. This method takes the UNION of allowed
-     * characters between the two context, so may be more imprecise that the
+     * characters among all contexts, so may be more imprecise than the
      * more specific contexts. Generally, this method is preferred unless you
      * specifically understand the context in which untrusted data will be
-     * output.
+     * displayed.
      * </p>
      *
      * <b>Example Usage:</b>
@@ -237,9 +237,9 @@ public class SecureEncoder
      * <p>
      * Encodes a given input for use in JavaScript inside an HTML context.
      * This method takes the UNION of allowed characters among the other
-     * contexts, so may be more imprecise that the more specific contexts.
+     * contexts, so may be more imprecise than the more specific contexts.
      * Generally, this method is preferred unless you specifically understand
-     * the context in which untrusted data will be output.
+     * the context in which untrusted data will be displayed.
      * </p>
      *
      * <b>Example Usage:</b>
@@ -285,7 +285,7 @@ public class SecureEncoder
      * <p>
      * Encodes a given input for use in JavaScript inside an HTML attribute.
      * This method is preferred if you understand exactly how the output
-     * of the will be used in the page
+     * of this will be used in the page
      * </p>
      *
      * <b>Example Usage:</b>
@@ -327,7 +327,7 @@ public class SecureEncoder
      * <p>
      * Encodes a given input for use in JavaScript inside an HTML block.
      * This method is preferred if you understand exactly how the output
-     * of the will be used in the page
+     * of this will be used in the page
      * </p>
      *
      * <b>Example Usage:</b>
@@ -371,7 +371,7 @@ public class SecureEncoder
      * <p>
      * Encodes a given input for use in JavaScript inside a JavaScript source
      * file. This method is preferred if you understand exactly how the output
-     * of the will be used in the page
+     * of this will be used in the page
      * </p>
      *
      * <b>Example Usage:</b>
@@ -538,10 +538,10 @@ public class SecureEncoder
      * <p>
      * Encodes a given input for use in a general XML context. E.g.
      * text content and text attributes. This method takes the UNION of allowed
-     * characters between the other contexts, so may be more imprecise that the
+     * characters between the other contexts, so may be more imprecise than the
      * more specific contexts. Generally, this method is preferred unless you
      * specifically understand the context in which untrusted data will be
-     * output.
+     * displayed.
      * </p>
      *
      * <b>Note: It is recommended that you use a real parser, as this method
@@ -588,7 +588,7 @@ public class SecureEncoder
      * <p>
      * Encodes a given input for use in an XML attribute guarded by a single
      * quote. This method is preferred if you understand the context in which
-     * untrusted data will be output.
+     * untrusted data will be displayed.
      * </p>
      *
      * <b>Note: It is recommended that you use a real parser, as this method
@@ -633,7 +633,7 @@ public class SecureEncoder
      * <p>
      * Encodes a given input for use in an XML attribute guarded by a double
      * quote. This method is preferred if you understand the context in which
-     * untrusted data will be output.
+     * untrusted data will be displayed.
      * </p>
      *
      * <b>Note: It is recommended that you use a real parser, as this method
@@ -678,7 +678,7 @@ public class SecureEncoder
      * <p>
      * Encodes a given input for use in an XML comments.
      * This method is preferred if you understand the context in which
-     * untrusted data will be output.
+     * untrusted data will be displayed.
      * </p>
      *
      * <b>Note: It is recommended that you use a real parser, as this method
