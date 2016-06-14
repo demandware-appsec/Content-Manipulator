@@ -1,17 +1,10 @@
 /*
- * Copyright 2015 Demandware Inc.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *     http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Copyright 2015 Demandware Inc. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+ * file except in compliance with the License. You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific language governing permissions and limitations under the
+ * License.
  */
 package com.demandware.appsec.secure.manipulation.impl;
 
@@ -31,8 +24,8 @@ import com.demandware.appsec.secure.manipulation.impl.HTMLManipulator.HTMLManipu
 
 public class HTMLManipulatorTest
 {
-    private final HTMLManipulator conMan = (HTMLManipulator) ManipulatorFactory
-        .getManipulator( DefaultManipulationType.HTML_CONTENT_MANIPULATOR );
+    private final HTMLManipulator conMan =
+        (HTMLManipulator) ManipulatorFactory.getManipulator( DefaultManipulationType.HTML_CONTENT_MANIPULATOR );
 
     private final HTMLManipulator dblMan = (HTMLManipulator) ManipulatorFactory
         .getManipulator( DefaultManipulationType.HTML_DOUBLE_QUOTE_ATTRIBUTE_MANIPULATOR );
@@ -49,14 +42,16 @@ public class HTMLManipulatorTest
     @Test
     public void testImmunity()
     {
-        @SuppressWarnings("unchecked")
-		List<SimpleEntry<Character[], HTMLManipulator>> list =
-            Arrays.asList(
-            	new SimpleEntry<Character[], HTMLManipulator>( HTMLManipulatorOption.CONTENT.getImmuneCharacters(), this.conMan ),
-                new SimpleEntry<Character[], HTMLManipulator>( HTMLManipulatorOption.DOUBLE_QUOTE_ATTRIBUTE.getImmuneCharacters(), this.dblMan ),
-                new SimpleEntry<Character[], HTMLManipulator>( HTMLManipulatorOption.SINGLE_QUOTE_ATTRIBUTE.getImmuneCharacters(), this.sglMan ), 
-                new SimpleEntry<Character[], HTMLManipulator>(HTMLManipulatorOption.UNQUOTED_ATTRIBUTE.getImmuneCharacters(), this.noqMan ) 
-            );
+        @SuppressWarnings( "unchecked" )
+        List<SimpleEntry<Character[], HTMLManipulator>> list = Arrays.asList(
+            new SimpleEntry<Character[], HTMLManipulator>( HTMLManipulatorOption.CONTENT.getImmuneCharacters(),
+                this.conMan ),
+            new SimpleEntry<Character[], HTMLManipulator>(
+                HTMLManipulatorOption.DOUBLE_QUOTE_ATTRIBUTE.getImmuneCharacters(), this.dblMan ),
+            new SimpleEntry<Character[], HTMLManipulator>(
+                HTMLManipulatorOption.SINGLE_QUOTE_ATTRIBUTE.getImmuneCharacters(), this.sglMan ),
+            new SimpleEntry<Character[], HTMLManipulator>(
+                HTMLManipulatorOption.UNQUOTED_ATTRIBUTE.getImmuneCharacters(), this.noqMan ) );
 
         for ( SimpleEntry<Character[], HTMLManipulator> entry : list )
         {
@@ -74,10 +69,9 @@ public class HTMLManipulatorTest
     public void testEntityEncoding()
     {
 
-        @SuppressWarnings("unchecked")
-		List<SimpleEntry<Character, String>> list =
-            Arrays.asList( 
-            	new SimpleEntry<Character, String>( (char) 34, "&quot;" ), /* quotation mark */
+        @SuppressWarnings( "unchecked" )
+        List<SimpleEntry<Character, String>> list =
+            Arrays.asList( new SimpleEntry<Character, String>( (char) 34, "&quot;" ), /* quotation mark */
                 new SimpleEntry<Character, String>( (char) 38, "&amp;" ), /* ampersand */
                 new SimpleEntry<Character, String>( (char) 60, "&lt;" ), /* less-than sign */
                 new SimpleEntry<Character, String>( (char) 62, "&gt;" ), /* greater-than sign */
