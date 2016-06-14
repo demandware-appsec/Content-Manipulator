@@ -44,7 +44,7 @@ public abstract class AbstractManipulator
      * A primary target for a Manipulator. filter removes any offending characters from the given string
      * 
      * @param input the string to filter
-     * @return a filtered string based on the manipulator implementation
+     * @return a filtered string based on the manipulator implementation or null, if the input is null
      */
     protected String filter( String input )
     {
@@ -52,7 +52,7 @@ public abstract class AbstractManipulator
         {
             return null;
         }
-
+        
         StringBuilder sb = new StringBuilder( input.length() );
         for ( int i = 0; i < input.length(); i++ )
         {
@@ -68,18 +68,24 @@ public abstract class AbstractManipulator
 
     /**
      * A primary target for a Manipulator. filter removes any offending characters from the given string and writes to
-     * the given Writer
+     * the given Writer. If the provided input is null, no content is written to the Writer
      * 
      * @param input the string to filter
      * @param writer a Writer to write output to
      * @throws IOException if the writer throws an IOException
+     * @throws IllegalArgumentException if the writer is null
      */
     protected void filter( String input, Writer writer )
-        throws IOException
+        throws IOException, IllegalArgumentException
     {
         if ( input == null )
         {
             return;
+        }
+        
+        if( writer == null )
+        {
+            throw new IllegalArgumentException( "Writer cannot be null" );
         }
 
         for ( int i = 0; i < input.length(); i++ )
@@ -97,7 +103,7 @@ public abstract class AbstractManipulator
      * A primary target for a Manipulator. encode modifies offending characters to their "safe" equivalents
      * 
      * @param input the string to encode
-     * @return an encoded string based on the manipulator implementation
+     * @return an encoded string based on the manipulator implementation or null, if the input is null
      */
     protected String encode( String input )
     {
@@ -118,18 +124,24 @@ public abstract class AbstractManipulator
 
     /**
      * A primary target for a Manipulator. encode modifies offending characters to their "safe" equivalents and writes
-     * to the given Writer
+     * to the given Writer. If the provided input is null, no content is written to the Writer
      * 
      * @param input the string to encode
      * @param writer a Writer to write output to
      * @throws IOException if the writer throws an IOException
+     * @throws IllegalArgumentException if the writer is null
      */
     protected void encode( String input, Writer writer )
-        throws IOException
+        throws IOException, IllegalArgumentException
     {
         if ( input == null )
         {
             return;
+        }
+        
+        if( writer == null )
+        {
+            throw new IllegalArgumentException( "Writer cannot be null" );
         }
 
         for ( int i = 0; i < input.length(); i++ )

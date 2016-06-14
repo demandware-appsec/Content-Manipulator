@@ -29,7 +29,7 @@ public class SecureEncoder
      * 
      * @param type the manipulation type to use for encoder lookup
      * @param input the string to encode
-     * @return a properly encoded string representation of the input string
+     * @return a properly encoded string representation of the input string, or null if the input is null
      */
     public static String encode( IManipulationType type, String input )
     {
@@ -41,7 +41,7 @@ public class SecureEncoder
      * Shared method to handle encoder lookup by type and dispatch string to be written with the given writer
      * 
      * @param type the manipulation type to use for encoder lookup
-     * @param input the string to encode
+     * @param input the string to encode.
      * @param writer a Writer to write output to
      */
     public static void encode( IManipulationType type, String input, Writer writer )
@@ -81,7 +81,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeHtmlContent( String input )
     {
@@ -119,7 +119,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeHtmlInSingleQuoteAttribute( String input )
     {
@@ -157,7 +157,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeHtmlInDoubleQuoteAttribute( String input )
     {
@@ -195,7 +195,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeHtmlUnquotedAttribute( String input )
     {
@@ -238,7 +238,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeJavaScriptInHTML( String input )
     {
@@ -276,7 +276,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeJavaScriptInAttribute( String input )
     {
@@ -316,7 +316,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeJavaScriptInBlock( String input )
     {
@@ -355,7 +355,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeJavaScriptInSource( String input )
     {
@@ -392,7 +392,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeJSONValue( String input )
     {
@@ -434,7 +434,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeUriComponent( String input )
     {
@@ -475,7 +475,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeUriComponentStrict( String input )
     {
@@ -519,7 +519,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeXmlContent( String input )
     {
@@ -559,7 +559,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeXmlInSingleQuoteAttribute( String input )
     {
@@ -599,7 +599,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeXmlInDoubleQuoteAttribute( String input )
     {
@@ -639,7 +639,7 @@ public class SecureEncoder
      * </ul>
      *
      * @param input untrusted input to be encoded, if necessary
-     * @return a properly encoded string for the given input
+     * @return a properly encoded string for the given input, or null if the input is null
      */
     public static String encodeXmlCommentContent( String input )
     {

@@ -79,7 +79,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterHtmlContent( String input )
     {
@@ -115,7 +115,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filterd, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterHtmlInSingleQuoteAttribute( String input )
     {
@@ -151,7 +151,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterHtmlInDoubleQuoteAttribute( String input )
     {
@@ -187,7 +187,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterHtmlUnquotedAttribute( String input )
     {
@@ -198,7 +198,7 @@ public class SecureFilter
      * Writes filtered content directly to given java.io.Writer See {@link #filterHtmlUnquotedAttribute(String)}
      *
      * @param input untrusted input to be filtered, if necessary
-     * @param out where to write the filtered output
+     * @param out where to write the filtered output, or null if the input is null
      */
     public static void filterHtmlUnquotedAttribute( String input, Writer out )
     {
@@ -229,7 +229,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterJavaScriptInHTML( String input )
     {
@@ -265,7 +265,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterJavaScriptInAttribute( String input )
     {
@@ -303,7 +303,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterJavaScriptInBlock( String input )
     {
@@ -340,7 +340,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterJavaScriptInSource( String input )
     {
@@ -377,7 +377,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterJSONValue( String input )
     {
@@ -419,7 +419,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterUriComponent( String input )
     {
@@ -461,7 +461,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterUriComponentStrict( String input )
     {
@@ -503,7 +503,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterXmlContent( String input )
     {
@@ -541,7 +541,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterXmlInSingleQuoteAttribute( String input )
     {
@@ -579,7 +579,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterXmlInDoubleQuoteAttribute( String input )
     {
@@ -617,7 +617,7 @@ public class SecureFilter
      * </ul>
      *
      * @param input untrusted input to be filtered, if necessary
-     * @return a properly filtered string for the given input
+     * @return a properly filtered string for the given input, or null if the input is null
      */
     public static String filterXmlCommentContent( String input )
     {

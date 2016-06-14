@@ -8,7 +8,9 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
@@ -33,6 +35,9 @@ public class AbstractManipulatorTest
 
         return params;
     }
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @Parameter( 0 )
     public IManipulationType type;
@@ -59,6 +64,16 @@ public class AbstractManipulatorTest
     }
 
     @Test
+    public void testNullWriterEncode()
+        throws IllegalArgumentException, IOException
+    {
+        this.exception.expect( IllegalArgumentException.class );
+        AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
+
+        manip.encode( "", null );
+    }
+
+    @Test
     public void testNullFilter()
     {
         AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
@@ -77,5 +92,15 @@ public class AbstractManipulatorTest
 
         manip.filter( null, writer );
         assertTrue( writer.toString().equals( "" ) );
+    }
+
+    @Test
+    public void testNullWriterFilter()
+        throws IllegalArgumentException, IOException
+    {
+        this.exception.expect( IllegalArgumentException.class );
+        AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
+
+        manip.filter( "", null );
     }
 }
