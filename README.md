@@ -1,5 +1,4 @@
 # Context Based Content Manipulation
-#### Demandware Inc, 2015
 
 ## Code Status
 [![Build Status](https://travis-ci.org/demandware-appsec/Content-Manipulator.svg?branch=master)](https://travis-ci.org/demandware-appsec/Content-Manipulator)
@@ -60,4 +59,5 @@ For code examples on using the library, extending the library, or adding to the 
 Included is a test suite ManipulatorTestSuite which executes sets of JUnit tests that cover over 95%+ of instructions in the library (some instructions are missed in defensive code branches).
 
 ## License
+Copyright 2015  Demandware Inc, All Rights Reserved
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt)
