@@ -1,8 +1,5 @@
 # Context Based Content Manipulation
 
-## Code Status
-[![Build Status](https://travis-ci.org/demandware-appsec/Content-Manipulator.svg?branch=master)](https://travis-ci.org/demandware-appsec/Content-Manipulator)
-
 ## Documentation
 [Context Based Content Manipulation Documentation](http://demandware-appsec.github.io/Content-Manipulator/javadoc/)
 
