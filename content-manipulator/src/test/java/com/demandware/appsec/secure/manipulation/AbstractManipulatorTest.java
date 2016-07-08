@@ -32,7 +32,7 @@ public class AbstractManipulatorTest
         {
             params.add( new Object[] { t } );
         }
-
+        params.add( new Object[]{ null} );
         return params;
     }
 
@@ -45,6 +45,10 @@ public class AbstractManipulatorTest
     @Test
     public void testNullEncode()
     {
+        if(type == null)
+        {
+            this.exception.expect( IllegalArgumentException.class );
+        }
         AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
 
         String result = manip.encode( null );
@@ -55,6 +59,10 @@ public class AbstractManipulatorTest
     public void testNullEncodeWriter()
         throws IOException
     {
+        if(type == null)
+        {
+            this.exception.expect( IllegalArgumentException.class );
+        }
         AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
 
         StringWriter writer = new StringWriter();
@@ -76,6 +84,10 @@ public class AbstractManipulatorTest
     @Test
     public void testNullFilter()
     {
+        if(type == null)
+        {
+            this.exception.expect( IllegalArgumentException.class );
+        }
         AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
 
         String result = manip.filter( null );
@@ -86,6 +98,10 @@ public class AbstractManipulatorTest
     public void testNullFilterWriter()
         throws IOException
     {
+        if(type == null)
+        {
+            this.exception.expect( IllegalArgumentException.class );
+        }
         AbstractManipulator manip = ManipulatorFactory.getManipulator( type );
 
         StringWriter writer = new StringWriter();

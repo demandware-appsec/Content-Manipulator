@@ -1,5 +1,5 @@
 # Context Based Content Manipulation
-[![analytics](http://www.google-analytics.com/collect?v=1&t=pageview&tid=UA-79686240-1&cid=5bc8d9b9-99b3-4646-b434-81d5d4479ff3&dl=https%3A%2F%2Fgithub.com%2Fdemandware-appsec%2Fcontent-manipulator)]()
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.demandware.appsec/content-manipulator/badge.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.demandware.appsec%22%20a%3A%22content-manipulator%22)[![analytics](http://www.google-analytics.com/collect?v=1&t=pageview&tid=UA-79686240-1&cid=5bc8d9b9-99b3-4646-b434-81d5d4479ff3&dl=https%3A%2F%2Fgithub.com%2Fdemandware-appsec%2Fcontent-manipulator)]()
 
 ## Documentation
 [Context Based Content Manipulation Documentation](http://demandware-appsec.github.io/Content-Manipulator/javadoc/)
@@ -9,6 +9,14 @@ Provide a set of Context-Based Encoders and Filterers in Java that allow applica
 
 ## Installation
 
+### Maven Central
+Use the following coordinates
+```
+<groupId>com.demandware.appsec</groupId>
+<artifactId>content-manipulators</artifactId>
+```
+
+### Manual
 Clone this repository, then run 
 ```
 mvn -f content-manipulator/pom.xml install

@@ -64,9 +64,14 @@ public class ManipulatorFactory
      * 
      * @param type an {@linkplain IManipulationType} describing a desired Manipulator
      * @return the Manipulator described by the given type, or null, if none was found
+     * @throws IllegalArgumentException if the provided type is null
      */
     public static AbstractManipulator getManipulator( IManipulationType type )
     {
+        if( type == null )
+        {
+            throw new IllegalArgumentException( "ManipulatorFactory was given an illegal manipulator type");
+        }
         return instance.manipulatorMap.get( type );
     }
 }
