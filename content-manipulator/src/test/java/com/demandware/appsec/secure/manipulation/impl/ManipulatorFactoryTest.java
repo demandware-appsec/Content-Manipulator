@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.demandware.appsec.secure.manipulation.AbstractCharacterManipulator;
 import com.demandware.appsec.secure.manipulation.AbstractManipulator;
 import com.demandware.appsec.secure.manipulation.IManipulateOption;
 import com.demandware.appsec.secure.manipulation.SecureEncoder;
@@ -23,7 +24,7 @@ public class ManipulatorFactoryTest
     }
 
     static class CaesarCipherManipulator
-        extends AbstractManipulator
+        extends AbstractCharacterManipulator
     {
         enum CaesarOption
             implements IManipulateOption

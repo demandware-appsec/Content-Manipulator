@@ -59,6 +59,41 @@ public class SecureEncoder
 
     /**
      * <p>
+     * Encodes content within a CDATA element.
+     * </p>
+     * <b>Example Usage:</b>
+     * 
+     * <pre>
+     * String cdata = "&lt;![CDATA[" + SecureEncode.encodeCDATAContent( untrustedInput ) + "]]&gt;";
+     * </pre>
+     * 
+     * <b> Flow: </b>
+     * <ul>
+     * <li>Allow all AlphaNumerics, Special characters and Unicode</li>
+     * <li>Disallow Control Characters</li>
+     * <li>Replace instances of ]]&gt; with ]]&gt;]]&lt;![CDATA[&gt;</li>
+     * </ul>
+     * @param input untrusted input to be encoded, if necessary
+     * @return a properly encoded string for the given input, or null if the input is null
+     */
+    public static String encodeCDATAContent( String input )
+    {
+        return encode( DefaultManipulationType.CDATA_CONTENT_MANIPULATOR, input );
+    }
+    
+    /**
+     * Writes encoded content directly to given java.io.Writer See {@link #encodeCDATAContent(String)}
+     *
+     * @param input untrusted input to be encoded, if necessary
+     * @param out where to write the encoded output
+     */
+    public static void encodeCDATAContent( String input, Writer out )
+    {
+        encode( DefaultManipulationType.CDATA_CONTENT_MANIPULATOR, input, out );
+    }
+
+    /**
+     * <p>
      * Encodes a given input for use in a general HTML context. E.g. text content and text attributes. This method takes
      * the UNION of allowed characters among all contexts, so may be more imprecise than the more specific contexts.
      * Generally, this method is preferred unless you specifically understand the context in which untrusted data will

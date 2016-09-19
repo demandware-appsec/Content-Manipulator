@@ -9,6 +9,7 @@
 package com.demandware.appsec.secure.manipulation.impl;
 
 import com.demandware.appsec.secure.manipulation.AbstractManipulator;
+import com.demandware.appsec.secure.manipulation.impl.CDATAManipulator.CDATAManipulatorOption;
 import com.demandware.appsec.secure.manipulation.impl.HTMLManipulator.HTMLManipulatorOption;
 import com.demandware.appsec.secure.manipulation.impl.JSONManipulator.JSONManipulatorOption;
 import com.demandware.appsec.secure.manipulation.impl.JavaScriptManipulator.JavaScriptManipulatorOption;
@@ -24,6 +25,7 @@ import com.demandware.appsec.secure.manipulation.impl.XMLManipulator.XMLManipula
 public enum DefaultManipulationType
     implements IManipulationType
 {
+    CDATA_CONTENT_MANIPULATOR( new CDATAManipulator( CDATAManipulatorOption.CDATA) ),
     HTML_CONTENT_MANIPULATOR( new HTMLManipulator( HTMLManipulatorOption.CONTENT ) ),
     HTML_UNQUOTED_ATTRIBUTE_MANIPULATOR( new HTMLManipulator( HTMLManipulatorOption.UNQUOTED_ATTRIBUTE ) ),
     HTML_SINGLE_QUOTE_ATTRIBUTE_MANIPULATOR( new HTMLManipulator( HTMLManipulatorOption.SINGLE_QUOTE_ATTRIBUTE ) ),
@@ -39,7 +41,7 @@ public enum DefaultManipulationType
     XML_SINGLE_QUOTE_ATTRIBUTE_MANIPULATOR( new XMLManipulator( XMLManipulatorOption.SINGLE_QUOTE_ATTRIBUTE ) ),
     XML_DOUBLE_QUOTE_ATTRIBUTE_MANIPULATOR( new XMLManipulator( XMLManipulatorOption.DOUBLE_QUOTE_ATTRIBUTE ) ),
     XML_COMMENT_MANIPULATOR( new XMLManipulator( XMLManipulatorOption.COMMENT_CONTENT ) ),;
-
+    
     private final AbstractManipulator manipulator;
 
     private DefaultManipulationType( AbstractManipulator manipulator )

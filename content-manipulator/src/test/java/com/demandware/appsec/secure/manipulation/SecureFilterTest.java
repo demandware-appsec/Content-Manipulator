@@ -20,6 +20,27 @@ public class SecureFilterTest
 {
 
     @Test
+    public void CDATATest()
+    {
+        String CDATA1 =
+            "<!--this! is/ a; comment: --><foo attribute=value>text</foo><bar attribute=\"doublevalue\">text2</bar><baz attribute='singlevalue'>)(*#$!@#?</baz>";
+        StringWriter sw = new StringWriter( CDATA1.length() );
+
+        assertEquals( "filterCDATA positive test failed", CDATA1, SecureFilter.filterCDATAContent( CDATA1 ) );
+
+        SecureFilter.filterCDATAContent( CDATA1, sw );
+        assertEquals( "filterCDATA positive test failed", CDATA1, sw.toString() );
+
+        String CDATA2 = "foo]]]]>]]";
+        sw = new StringWriter( CDATA2.length() );
+        String expected = "foo]]]]";
+        assertEquals( "filterCDATA negative test failed", expected, SecureFilter.filterCDATAContent( CDATA2 ) );
+
+        SecureFilter.filterCDATAContent( CDATA2, sw );
+        assertEquals( "filterCDATA negative test failed", expected, sw.toString() );
+    }
+    
+    @Test
     public void HTMLTest()
     {
         String htmlTest =

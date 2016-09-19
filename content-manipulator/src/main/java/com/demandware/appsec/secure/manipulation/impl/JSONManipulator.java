@@ -8,7 +8,7 @@
  */
 package com.demandware.appsec.secure.manipulation.impl;
 
-import com.demandware.appsec.secure.manipulation.AbstractManipulator;
+import com.demandware.appsec.secure.manipulation.AbstractCharacterManipulator;
 import com.demandware.appsec.secure.manipulation.IManipulateOption;
 
 /**
@@ -17,7 +17,7 @@ import com.demandware.appsec.secure.manipulation.IManipulateOption;
  * @author Chris Smith
  */
 public class JSONManipulator
-    extends AbstractManipulator
+    extends AbstractCharacterManipulator
 {
 
     static enum JSONManipulatorOption
