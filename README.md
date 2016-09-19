@@ -65,7 +65,7 @@ Encoders and Filters are used to combat many kinds of injection attacks. To that
 For code examples on using the library, extending the library, or adding to the library, please see [Examples](./EXAMPLES.md)
 
 ## Tests
-Included is a test suite ManipulatorTestSuite which executes sets of JUnit tests that cover over 95%+ of instructions in the library (some instructions are missed in defensive code branches).
+Included is a test suite which executes sets of JUnit tests that cover over 95%+ of instructions in the library (some instructions are missed in defensive code branches).
 
 ## License
 Copyright 2015  Demandware Inc, All Rights Reserved
