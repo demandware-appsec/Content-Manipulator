@@ -9,9 +9,8 @@
 package com.demandware.appsec.secure.manipulation;
 
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.io.Writer;
-
-import com.demandware.appsec.secure.manipulation.impl.ManipulationUtils;
 
 /**
  * Base implementation of a Manipulator (handles both filtering and encoding). Provides common functionality for
@@ -52,17 +51,19 @@ public abstract class AbstractManipulator
         {
             return null;
         }
-        
+
         StringBuilder sb = new StringBuilder( input.length() );
-        for ( int i = 0; i < input.length(); i++ )
+
+        try
         {
-            Character c = input.charAt( i );
-            String corr = getCorrectCharacter( c );
-            if ( ManipulationUtils.isSame( c, corr ) )
-            {
-                sb.append( c );
-            }
+            filterInternal( input, sb );
         }
+        catch ( IOException e )
+        {
+            // throw as unchecked as StringBuilder shouldn't have any IOExceptions
+            throw new UncheckedIOException( e );
+        }
+
         return sb.toString();
     }
 
@@ -82,21 +83,14 @@ public abstract class AbstractManipulator
         {
             return;
         }
-        
-        if( writer == null )
+
+        if ( writer == null )
         {
             throw new IllegalArgumentException( "Writer cannot be null" );
         }
 
-        for ( int i = 0; i < input.length(); i++ )
-        {
-            Character c = input.charAt( i );
-            String corr = getCorrectCharacter( c );
-            if ( ManipulationUtils.isSame( c, corr ) )
-            {
-                writer.write( c );
-            }
-        }
+        filterInternal( input, writer );
+
     }
 
     /**
@@ -114,10 +108,14 @@ public abstract class AbstractManipulator
 
         // length * 3 is a best guess
         StringBuilder sb = new StringBuilder( input.length() * 3 );
-        for ( int i = 0; i < input.length(); i++ )
+        try
         {
-            char c = input.charAt( i );
-            sb.append( getCorrectCharacter( c ) );
+            encodeInternal( input, sb );
+        }
+        catch ( IOException e )
+        {
+            // throw as unchecked as StringBuilder shouldn't have any IOExceptions
+            throw new UncheckedIOException( e );
         }
         return sb.toString();
     }
@@ -138,26 +136,33 @@ public abstract class AbstractManipulator
         {
             return;
         }
-        
-        if( writer == null )
+
+        if ( writer == null )
         {
             throw new IllegalArgumentException( "Writer cannot be null" );
         }
 
-        for ( int i = 0; i < input.length(); i++ )
-        {
-            char c = input.charAt( i );
-            writer.write( getCorrectCharacter( c ) );
-        }
+        encodeInternal( input, writer );
     }
 
     /**
-     * Given a character, do any defined, necessary manipulations to the character and return its corrected, possibly
-     * manipulated version
+     * Given a character, do any defined, necessary encodings to the input string and append it to the output object
      * 
-     * @param c a single character to manipulate based on implementation
-     * @return the corrected string version of the input character
+     * @param input the string to encode
+     * @param output the object to append the encoded version of the string to
+     * @throws IOException if any IOExceptions occur in the subclass
      */
-    protected abstract String getCorrectCharacter( Character c );
+    protected abstract void encodeInternal( String input, Appendable output )
+        throws IOException;
+
+    /**
+     * Given a character, do any defined, necessary filterings to the input string and append it to the output object
+     * 
+     * @param input the string to encode
+     * @param output the object to append the encoded version of the string to
+     * @throws IOException if any IOExceptions occur in the subclass
+     */
+    protected abstract void filterInternal( String input, Appendable output )
+        throws IOException;
 
 }

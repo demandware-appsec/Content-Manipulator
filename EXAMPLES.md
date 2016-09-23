@@ -73,7 +73,7 @@ First you must create the Manipulator
  * This Manipulator Base64 encodes specific symbols, leaving all other
  * values untouched
  */
-public class Base64SymbolManipulator extends AbstractManipulator
+public class Base64SymbolManipulator extends AbstractCharacterManipulator
 {
 
 	static enum Base64SymbolManipulatorOption implements IManipulateOption

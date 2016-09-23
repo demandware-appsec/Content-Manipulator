@@ -20,6 +20,27 @@ public class SecureEncoderTest
 {
 
     @Test
+    public void CDATATest()
+    {
+        String CDATA1 =
+            "<!--this! is/ a; comment: --><foo attribute=value>text</foo><bar attribute=\"doublevalue\">text2</bar><baz attribute='singlevalue'>)(*#$!@#?</baz>";
+        StringWriter sw = new StringWriter( CDATA1.length() );
+
+        assertEquals( "encodeCDATA positive test failed", CDATA1, SecureEncoder.encodeCDATAContent( CDATA1 ) );
+
+        SecureEncoder.encodeCDATAContent( CDATA1, sw );
+        assertEquals( "encodeCDATA positive test failed", CDATA1, sw.toString() );
+
+        String CDATA2 = "foo]]]]>]]";
+        sw = new StringWriter( CDATA2.length() );
+        String expected = "foo]]]]>]]<![CDATA[>]]";
+        assertEquals( "encodeCDATA negative test failed", expected, SecureEncoder.encodeCDATAContent( CDATA2 ) );
+
+        SecureEncoder.encodeCDATAContent( CDATA2, sw );
+        assertEquals( "encodeCDATA negative test failed", expected, sw.toString() );
+    }
+
+    @Test
     public void HTMLTest()
     {
         String htmlTest =
@@ -181,4 +202,5 @@ public class SecureEncoderTest
         assertEquals( "encodeUriComponentStrict failed", uriStrict, sw.toString() );
 
     }
+
 }

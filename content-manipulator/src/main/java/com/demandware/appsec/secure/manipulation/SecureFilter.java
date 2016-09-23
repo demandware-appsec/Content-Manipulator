@@ -56,6 +56,41 @@ public class SecureFilter
             throw new IllegalArgumentException( "An error occurred while filtering", e );
         }
     }
+    
+    /**
+     * <p>
+     * Filters content within a CDATA element.
+     * </p>
+     * <b>Example Usage:</b>
+     * 
+     * <pre>
+     * String cdata = "&lt;![CDATA[" + SecureFilter.filterCDATAContent( untrustedInput ) + "]]&gt;";
+     * </pre>
+     * 
+     * <b> Flow: </b>
+     * <ul>
+     * <li>Allow all AlphaNumerics, Special characters and Unicode</li>
+     * <li>Disallow Control Characters</li>
+     * <li>Remove instances of ]]&gt;</li>
+     * </ul>
+     * @param input untrusted input to be filtered, if necessary
+     * @return a properly filtered string for the given input, or null if the input is null
+     */
+    public static String filterCDATAContent( String input )
+    {
+        return filter( DefaultManipulationType.CDATA_CONTENT_MANIPULATOR, input );
+    }
+    
+    /**
+     * Writes filtered content directly to given java.io.Writer See {@link #filterCDATAContent(String)}
+     *
+     * @param input untrusted input to be filtered, if necessary
+     * @param out where to write the filtered output
+     */
+    public static void filterCDATAContent( String input, Writer out )
+    {
+        filter( DefaultManipulationType.CDATA_CONTENT_MANIPULATOR, input, out );
+    }
 
     /**
      * <p>

@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.demandware.appsec.secure.manipulation.AbstractManipulator;
+import com.demandware.appsec.secure.manipulation.AbstractCharacterManipulator;
 import com.demandware.appsec.secure.manipulation.IManipulateOption;
 
 /**
@@ -21,7 +21,7 @@ import com.demandware.appsec.secure.manipulation.IManipulateOption;
  * @author Chris Smith
  */
 public class XMLManipulator
-    extends AbstractManipulator
+    extends AbstractCharacterManipulator
 {
 
     static enum XMLManipulatorOption
